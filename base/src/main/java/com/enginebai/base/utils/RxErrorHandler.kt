@@ -2,11 +2,11 @@ package com.enginebai.base.utils
 
 import android.app.Application
 import com.enginebai.base.R
-import io.reactivex.exceptions.OnErrorNotImplementedException
-import io.reactivex.exceptions.UndeliverableException
-import io.reactivex.functions.Consumer
-import io.reactivex.plugins.RxJavaPlugins
-import io.reactivex.subjects.PublishSubject
+import io.reactivex.rxjava3.exceptions.OnErrorNotImplementedException
+import io.reactivex.rxjava3.exceptions.UndeliverableException
+import io.reactivex.rxjava3.functions.Consumer
+import io.reactivex.rxjava3.plugins.RxJavaPlugins
+import io.reactivex.rxjava3.subjects.PublishSubject
 import retrofit2.HttpException
 import timber.log.Timber
 import java.net.ConnectException

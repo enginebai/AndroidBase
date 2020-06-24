@@ -8,7 +8,7 @@ import org.koin.dsl.module
 import retrofit2.CallAdapter
 import retrofit2.Converter
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 val networkModule = module {
@@ -25,7 +25,7 @@ val networkModule = module {
     }
 
     single<Converter.Factory> { GsonConverterFactory.create() }
-    single<CallAdapter.Factory> { RxJava2CallAdapterFactory.create() }
+    single<CallAdapter.Factory> { RxJava3CallAdapterFactory.create() }
     single<Retrofit> {
         // TODO: 5. specify the base URL
         Retrofit.Builder()

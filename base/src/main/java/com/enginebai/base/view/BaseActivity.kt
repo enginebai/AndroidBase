@@ -4,9 +4,9 @@ import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import com.enginebai.base.utils.RxErrorHandler
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.disposables.Disposable
 import org.koin.android.ext.android.inject
 import java.util.concurrent.TimeUnit
 
@@ -35,7 +35,7 @@ abstract class BaseActivity : AppCompatActivity() {
 				.observeOn(AndroidSchedulers.mainThread())
 				.doOnNext { handleErrorMessage(it) }
 				.subscribe()
-				.disposeOnDestroy()
+                .disposeOnDestroy()
 		}
 	}
 

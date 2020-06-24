@@ -7,11 +7,11 @@ import org.gradle.kotlin.dsl.provideDelegate
 
 object Dependencies {
 
-    const val androidGradlePlugin = "com.android.tools.build:gradle:3.5.1"
+    const val androidGradlePlugin = "com.android.tools.build:gradle:${Versions.androidGradle}"
     const val material = "com.google.android.material:material:${Versions.material}"
 
-    const val rxJava = "io.reactivex.rxjava2:rxjava:${Versions.rxJava}"
-    const val rxAndroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxAndroid}"
+    const val rxJava = "io.reactivex.rxjava3:rxjava:${Versions.rxJava}"
+    const val rxAndroid = "io.reactivex.rxjava3:rxandroid:${Versions.rxAndroid}"
 
     const val gson = "com.google.code.gson:gson:${Versions.gson}"
     const val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
@@ -19,19 +19,19 @@ object Dependencies {
 
     object Kotlin {
         const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
-        const val stdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
+        const val stdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
     }
 
     object AndroidX {
-        const val appCompat = "androidx.appcompat:appcompat:${Versions.androidX}"
-        const val coreKtx = "androidx.core:core-ktx:${Versions.androidX}"
-        const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
-        const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+        const val appCompat = "androidx.appcompat:appcompat:${Versions.AndroidX.appCompat}"
+        const val coreKtx = "androidx.core:core-ktx:${Versions.AndroidX.core}"
+        const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.AndroidX.constraintLayout}"
+        const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.AndroidX.lifecycle}"
     }
 
     object Test {
         const val junit = "junit:junit:${Versions.junit}"
-        const val runner = "androidx.test:runner:1.2.0"
+        const val runner = "androidx.test:runner:${Versions.testRunner}"
         const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espresso}"
     }
 
@@ -44,7 +44,7 @@ object Dependencies {
     object Retrofit {
         const val core = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
         const val gsonConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
-        const val rxJavaAdapter = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit}"
+        const val rxJavaAdapter = "com.squareup.retrofit2:adapter-rxjava3:${Versions.retrofit}"
     }
 
     object Logging {
