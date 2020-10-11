@@ -39,6 +39,7 @@ object Versions {
         const val lifecycle = "2.1.0"
         const val paging = "2.1.2"
         const val room = "2.2.5"
+        const val navigation = "2.3.0"
     }
 
 }

@@ -66,13 +66,18 @@ object Dependencies {
         const val rxJava2 =
             "androidx.paging:paging-rxjava2:${Versions.ArchitectureComponents.paging}"
     }
+
+    object Navigation {
+        const val fragmentKtx =
+            "androidx.navigation:navigation-fragment-ktx:${Versions.ArchitectureComponents.navigation}"
+        const val uiKtx =
+            "androidx.navigation:navigation-fragment-ktx:${Versions.ArchitectureComponents.navigation}"
+        const val safeArgs =
+            "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.ArchitectureComponents.navigation}"
+    }
 }
 
-fun Project.importCommonPlugins() {
-    plugins.apply("kotlin-android")
-    plugins.apply("kotlin-android-extensions")
-    plugins.apply("kotlin-kapt")
-}
+val commonPlugins = arrayOf("kotlin-android", "kotlin-android-extensions", "kotlin-kapt")
 
 // apply common plugin
 fun Project.importCommonDependencies() {
