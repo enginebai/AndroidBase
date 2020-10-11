@@ -16,6 +16,7 @@ It helps you to create a well configured Android starter application with the mo
 6. Create your application class which extends `BaseApplication` in `:app` module, implement abstract methods and add to `AndroidManifest.xml` file.
 7. Specify your retrofit base URL in `NetworkModule.kt` file.
 8. Start to design your main layout xml file `fragment_main.xml` and fragment class.
+9. Specify your `MainFragment.kt` name in navigation graph xml file.
 9. That's all. Start your app development journey now 🎉.
 
 ## Good Practices

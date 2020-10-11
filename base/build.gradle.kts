@@ -1,8 +1,8 @@
 plugins {
     id("com.android.library")
+    commonPlugins.forEach { id(it) }
 }
 
-importCommonPlugins()
 configAndroid()
 importCommonDependencies()
 
