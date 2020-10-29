@@ -10,8 +10,8 @@ import androidx.core.content.ContextCompat
 
 /**
  * Prevent multiple click in a short period of time. Default interval is 1500 milli-second.
- * @param intervalInMillis: The time interval to trigger next click events.
- * @param listener: The click listener
+ * @param intervalInMillis: the time interval to trigger next click events.
+ * @param listener: the click listener.
  */
 inline fun View.debounceClick(
     intervalInMillis: Int = 1500,

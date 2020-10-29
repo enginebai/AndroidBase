@@ -28,6 +28,9 @@ object Dependencies {
             "androidx.constraintlayout:constraintlayout:${Versions.AndroidX.constraintLayout}"
         const val viewModel =
             "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.ArchitectureComponents.lifecycle}"
+        const val livedata =
+            "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.ArchitectureComponents.lifecycle}"
+        const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:${Versions.ArchitectureComponents.lifecycle}"
     }
 
     object Test {
@@ -92,12 +95,16 @@ fun Project.importCommonDependencies() {
         "implementation"(Dependencies.rxAndroid)
 
         val implementation by configurations
+        val kapt by configurations
         val testImplementation by configurations
         val androidTestImplementation by configurations
 
         implementation(Dependencies.AndroidX.appCompat)
         implementation(Dependencies.AndroidX.coreKtx)
         implementation(Dependencies.AndroidX.constraintLayout)
+        implementation(Dependencies.AndroidX.viewModel)
+        implementation(Dependencies.AndroidX.livedata)
+        kapt(Dependencies.AndroidX.lifecycleCompiler)
         implementation(Dependencies.material)
 
         implementation(Dependencies.Koin.android)
