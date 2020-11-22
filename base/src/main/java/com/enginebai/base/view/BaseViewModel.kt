@@ -13,7 +13,7 @@ abstract class BaseViewModel : ViewModel(), KoinComponent {
         super.onCleared()
     }
 
-    protected fun Disposable.disposeOnCleared(): Disposable {
+    fun Disposable.disposeOnCleared(): Disposable {
         disposables.add(this)
         return this
     }
