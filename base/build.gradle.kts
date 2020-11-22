@@ -1,7 +1,10 @@
 plugins {
     id("com.android.library")
     commonPlugins.forEach { id(it) }
+    id("com.github.dcendents.android-maven")
 }
+
+group = "com.github.enginebai"
 
 configAndroid()
 importCommonDependencies()

@@ -8,6 +8,7 @@ object Dependencies {
 
     const val androidGradlePlugin = "com.android.tools.build:gradle:${Versions.androidGradle}"
     const val material = "com.google.android.material:material:${Versions.material}"
+    const val androidMaven = "com.github.dcendents:android-maven-gradle-plugin:${Versions.androidMaven}"
 
     const val rxJava = "io.reactivex.rxjava2:rxjava:${Versions.rxJava}"
     const val rxAndroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxAndroid}"
@@ -88,7 +89,6 @@ fun Project.importCommonDependencies() {
 
         // The two following syntax is applicable
         // source: https://github.com/gradle/kotlin-dsl-samples/issues/843
-        "implementation"(fileTree("dir" to "libs", "include" to listOf("*.jar")))
         "implementation"(Dependencies.Kotlin.stdLib)
 
         "implementation"(Dependencies.rxJava)
