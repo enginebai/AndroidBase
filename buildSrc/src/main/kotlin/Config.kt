@@ -3,12 +3,6 @@ import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.getByType
 
-//open class ConfigPlugin : Plugin<Project> {
-//    override fun apply(target: Project) {
-//        target.configAndroid()
-//    }
-//}
-
 fun Project.configAndroid() = this.extensions.getByType<BaseExtension>().run {
     compileSdkVersion(Versions.Android.sdk)
     defaultConfig {
@@ -17,7 +11,6 @@ fun Project.configAndroid() = this.extensions.getByType<BaseExtension>().run {
         versionCode = Versions.App.versionCode
         versionName = Versions.App.versionName
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        dataBinding.isEnabled = true
     }
 
     buildTypes {
