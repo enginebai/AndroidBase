@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- TODO: 2. change the package name-->
+<!-- TODO: 3. change the package name-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.enginebai.project">
 
