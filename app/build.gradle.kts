@@ -15,7 +15,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":base"))
+    implementation(Dependencies.androidBase)
     implementation(Dependencies.Navigation.fragmentKtx)
     implementation(Dependencies.Navigation.uiKtx)
 }

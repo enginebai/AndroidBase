@@ -11,6 +11,7 @@ object Versions {
     const val timber = "4.7.1"
     const val logger = "2.2.0"
     const val epoxy = "3.11.0"
+    const val androidBase = "v1.0.2"
     const val androidMaven = "2.1"
 
     // Test frameworks

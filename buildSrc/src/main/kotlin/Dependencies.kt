@@ -8,6 +8,7 @@ object Dependencies {
 
     const val androidGradlePlugin = "com.android.tools.build:gradle:${Versions.androidGradle}"
     const val material = "com.google.android.material:material:${Versions.material}"
+    const val androidBase = "com.github.enginebai:AndroidBase:${Versions.androidBase}"
     const val androidMaven = "com.github.dcendents:android-maven-gradle-plugin:${Versions.androidMaven}"
 
     const val rxJava = "io.reactivex.rxjava2:rxjava:${Versions.rxJava}"

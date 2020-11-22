@@ -52,3 +52,12 @@ TextView.setTextWithVisibility("5678")
 String?.isValidEmail(): Boolean
 ```
 
+## Coroutine
+```kotlin
+// retry 5 times with exponential backoff.
+suspend fun getProductList() {
+    retry { 
+        api.fetchProducts()    
+    }
+}
+```
