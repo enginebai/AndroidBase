@@ -5,6 +5,7 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import timber.log.Timber
 
 abstract class BaseActivity : AppCompatActivity() {
 
@@ -12,8 +13,6 @@ abstract class BaseActivity : AppCompatActivity() {
 
     @LayoutRes
     abstract fun getLayoutId(): Int
-
-    abstract fun handleErrorMessage(message: String)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +22,10 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onDestroy() {
         disposables.clear()
         super.onDestroy()
+    }
+
+    open fun handleErrorMessage(message: String) {
+        Timber.w(message)
     }
 
     protected fun Disposable.disposeOnDestroy(): Disposable {
