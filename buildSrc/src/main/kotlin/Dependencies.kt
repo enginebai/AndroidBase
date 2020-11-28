@@ -80,6 +80,11 @@ object Dependencies {
         const val safeArgs =
             "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.ArchitectureComponents.navigation}"
     }
+
+    object Room {
+        const val runtime = "androidx.room:room-runtime:${Versions.ArchitectureComponents.room}"
+        const val compiler = "androidx.room:room-compiler:${Versions.ArchitectureComponents.room}"
+    }
 }
 
 val commonPlugins = arrayOf("kotlin-android", "kotlin-android-extensions", "kotlin-kapt")

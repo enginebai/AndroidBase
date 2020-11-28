@@ -1,7 +1,5 @@
 package com.enginebai.project.utils
 
-import android.app.Application
-import com.enginebai.base.R
 import io.reactivex.exceptions.OnErrorNotImplementedException
 import io.reactivex.exceptions.UndeliverableException
 import io.reactivex.functions.Consumer
@@ -14,9 +12,22 @@ import java.net.SocketException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 
+/**
+ * The exception handler for the application, it will handle RxJava exception automatically,
+ *  and for non-RxJava you call `exceptionHandler.accept(e)`, and add the new branch condition
+ *  for your custom exception you want to handle.
+ *
+ *  If you want to just display error message, call `errorMessageToDisplay.onNext(error message)`.
+ *  If you want to propagate the exception, call `handledException.onNext(e)`.
+ *
+ *  To display the error message, you need to subscribe the `errorMessageToDisplay` subject.
+ *  To handle the propagated exception, you need to subscribe the `handledException` subject.
+ */
 class ExceptionHandler : Consumer<Throwable> {
 
+    // Emit strings if you handle the exception and just display error message.
     val errorMessageToDisplay = PublishSubject.create<String>()
+    // Emit the exception if you'd like to propagate the exception and handle in other modules or layers
     val handledException = PublishSubject.create<Throwable>()
 
     init {
@@ -37,10 +48,11 @@ class ExceptionHandler : Consumer<Throwable> {
                 errorMessageToDisplay.onNext("HTTP ${cause.code()} of $url")
             }
             is ApiException -> {
-                errorMessageToDisplay.onNext(cause.toString())
                 handledException.onNext(cause)
             }
+            // TODO: add case to handle your custom exception
             else -> {
+                // For the case you can't catch or handle
                 Timber.e(cause)
                 throw cause
             }
@@ -59,3 +71,6 @@ class ExceptionHandler : Consumer<Throwable> {
 
 class ParseCauseFailException(t: Throwable) : RuntimeException(t)
 class ApiException(t: Throwable) : RuntimeException(t)
+
+// TODO: you can create the custom exception for your logic
+// Such as UsernameNotFoundException(), PasswordIncorrectException()

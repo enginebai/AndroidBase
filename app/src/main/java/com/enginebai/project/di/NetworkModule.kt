@@ -1,4 +1,4 @@
-package com.enginebai.base.di
+package com.enginebai.project.di
 
 import com.enginebai.base.extensions.EnumGsonSerializedNameConverterFactory
 import com.enginebai.base.extensions.EnumHasValueConverterFactory
@@ -32,8 +32,9 @@ val networkModule = module {
     single { EnumHasValueConverterFactory }
     single { RxJava2CallAdapterFactory.create() }
     single {
+        // TODO: 5. Set your API base url
         Retrofit.Builder()
-            .baseUrl("http://1ef7a11f1bbd.ngrok.io")
+            .baseUrl("")
             .addCallAdapterFactory(get<RxJava2CallAdapterFactory>())
             .addConverterFactory(get<GsonConverterFactory>())
             .addConverterFactory(get<EnumHasValueConverterFactory>())

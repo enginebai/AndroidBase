@@ -1,3 +1,3 @@
 include(":app")
-// TODO: 0. change your project name
+// TODO: 1. change your project name
 rootProject.name="AndroidBase"

@@ -8,18 +8,20 @@ import com.orhanobut.logger.PrettyFormatStrategy
 import org.koin.dsl.module
 import timber.log.Timber
 
-val loggingModule = module {
+const val LOG_TAG = "enginebai"
+
+val logModule = module {
     single<AndroidLogAdapter> { (formatStrategy: FormatStrategy) ->
         object : AndroidLogAdapter(formatStrategy) {
             override fun isLoggable(priority: Int, tag: String?): Boolean {
-                return BuildConfig.DEBUG
+                return BuildConfig.DEBUG && tag == LOG_TAG
             }
         }
     }
 
     single<FormatStrategy> {
         PrettyFormatStrategy.newBuilder()
-            .tag("enginebai")
+            .tag(LOG_TAG)
             .methodCount(3)
             .methodOffset(5) // avoid timber internal stack track
             .build()
