@@ -118,9 +118,6 @@ fun Project.importCommonDependencies() {
         implementation(Dependencies.okhttp)
         implementation(Dependencies.gson)
 
-        implementation(Dependencies.Paging.runtime)
-        implementation(Dependencies.Paging.rxJava2)
-
         testImplementation(Dependencies.Test.junit)
         androidTestImplementation(Dependencies.Test.runner)
         androidTestImplementation(Dependencies.Test.espressoCore)

@@ -18,4 +18,10 @@ dependencies {
     implementation(Dependencies.androidBase)
     implementation(Dependencies.Navigation.fragmentKtx)
     implementation(Dependencies.Navigation.uiKtx)
+
+    implementation(Dependencies.okhttp)
+    implementation(Dependencies.okhttpLogging)
+    implementation(Dependencies.Retrofit.core)
+    implementation(Dependencies.Retrofit.gsonConverter)
+    implementation(Dependencies.Retrofit.rxJavaAdapter)
 }
