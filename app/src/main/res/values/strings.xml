@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Base</string>
+    <string name="error_network_fail">Looks like your are offline.</string>
 </resources>
