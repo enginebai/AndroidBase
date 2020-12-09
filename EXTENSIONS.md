@@ -1,4 +1,19 @@
 # Useful Extension Functions
+## Coroutine
+```kotlin
+suspend fun fetchApi(): User { ... }
+
+// Retry with exponential backoff
+retry {
+    fetchApi()
+}
+
+val controller = CoroutineRunningController<User>()
+controller.cancelPreviousThenRun(fetchApi())
+controller.queueTask(fetchApi())
+controller.joinPreviousOrRun(fetchApi())
+```
+
 ## View
 ```kotlin
 // Prevent multiple/duplicate click
@@ -52,12 +67,4 @@ TextView.setTextWithVisibility("5678")
 String?.isValidEmail(): Boolean
 ```
 
-## Coroutine
-```kotlin
-// retry 5 times with exponential backoff.
-suspend fun getProductList() {
-    retry { 
-        api.fetchProducts()    
-    }
-}
-```
+
