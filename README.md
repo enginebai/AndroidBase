@@ -1,7 +1,7 @@
 ![Language](https://img.shields.io/badge/language-kotlin-blue?logo=kotlin) ![License](https://img.shields.io/badge/License-MIT-orange) [![](https://jitpack.io/v/enginebai/AndroidBase.svg)](https://jitpack.io/#enginebai/AndroidBase)
 
 # AndroidBase
-The `AndroidBase` project provides a Android app project template that setups for **Gradle Kotlin DSL**, it also provides some base classes or extensions to accerate your android development.
+The `AndroidBase` project provides an Android app project template that setups for **Gradle Kotlin DSL**, it also provides some base classes or extensions to accerate your android development.
 
 You can [use this template](https://github.com/enginebai/AndroidBase/generate) or download the [base module](#Download-for-Base-Module).
 
