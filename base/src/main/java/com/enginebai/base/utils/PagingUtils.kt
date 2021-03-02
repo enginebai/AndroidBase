@@ -6,7 +6,8 @@ import io.reactivex.Observable
 enum class NetworkState {
     IDLE,
     LOADING,
-    ERROR
+    ERROR,
+    EMPTY
 }
 
 data class Listing<T>(
