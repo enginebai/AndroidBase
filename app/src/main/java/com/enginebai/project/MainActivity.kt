@@ -23,8 +23,12 @@ class MainActivity : BaseActivity() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext { handleErrorMessage(it) }
                 .subscribe()
-                .disposeOnDestroy()
         }
+    }
+
+    override fun onStop() {
+        exceptionHandlerDisposable?.dispose()
+        super.onStop()
     }
 
     override fun getLayoutId() = R.layout.activity_main
