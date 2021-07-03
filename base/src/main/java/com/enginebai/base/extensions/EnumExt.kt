@@ -12,9 +12,9 @@ import java.lang.reflect.Type
  *
  * Example:
  *  enum class MediaType {
- *      @SerializedName("image-jpeg")
+ *      @SerializedName("jpeg")
  *      IMAGE_JPG,
- *      @SerializedName("video-mp4")
+ *      @SerializedName("mp4")
  *      VIDEO_MP4
  *  }
  *
@@ -86,4 +86,43 @@ class EnumHasValueJsonAdapter<T> : JsonSerializer<T>, JsonDeserializer<T> where 
         return parsedValue
     }
 
+}
+
+/**
+ * Serialize or deserialize the enum by ordinal.
+ *
+ * Suppose we have a field representing order status:
+ *  0: reservation success, 1: arrival, 2: cancel
+ *
+ * We define a enum for this field and we can use json adapter:
+ *
+ * @JsonAdapter(EnumOrdinalJsonAdapter::class)
+ * enum class OrderStatus {
+ *    RESERVATION_SUCCESS,
+ *    ARRIVAL,
+ *    CANCEL
+ * }
+ *
+ * data class Order(
+ *    val status: OrderStatus?
+ * )
+ */
+class EnumOrdinalJsonAdapter<T> : JsonSerializer<T>, JsonDeserializer<T> where T : Enum<T> {
+    override fun serialize(
+        src: T,
+        typeOfSrc: Type?,
+        context: JsonSerializationContext?
+    ): JsonElement {
+        return JsonPrimitive(src.ordinal)
+    }
+
+    override fun deserialize(
+        json: JsonElement,
+        typeOfT: Type?,
+        context: JsonDeserializationContext?
+    ): T? {
+        val parsedValue = (typeOfT as Class<T>).enumConstants?.associateBy { it.ordinal }?.get(json.asInt)
+        parsedValue ?: kotlin.run { Timber.w("Can not deserialize value ${json.asString} to $typeOfT") }
+        return parsedValue
+    }
 }
