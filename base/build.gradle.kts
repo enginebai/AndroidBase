@@ -1,7 +1,7 @@
 plugins {
     id("com.android.library")
     commonPlugins.forEach { id(it) }
-    id("com.github.dcendents.android-maven")
+    id("maven-publish")
 }
 
 group = "com.github.enginebai"
