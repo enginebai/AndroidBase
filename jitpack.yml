@@ -1,1 +1,6 @@
 jdk: openjdk11
+
+before_install:
+  - ./gradlew clean -xtest -xlint :base:assembleRelease
+install:
+  - ./gradlew :base:publishToMavenLocal

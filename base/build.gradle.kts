@@ -6,6 +6,20 @@ plugins {
 
 group = "com.github.enginebai"
 
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("library") {
+                groupId = "com.github.enginebai"
+                artifactId = "AndroidBase"
+                version = "1.0.1"
+                // base-release.aar = $moduleName-$buildType.aar
+                artifact("$buildDir/outputs/aar/base-release.aar")
+            }
+        }
+    }
+}
+
 configAndroid()
 importCommonDependencies()
 
